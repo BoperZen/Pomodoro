@@ -2,6 +2,7 @@
   "name": "pomodoro-app",
   "version": "1.0.0",
   "description": "Aplicación Pomodoro con React - Timer para estudio y descanso",
+  "homepage": "https://boperzen.github.io/Pomodoro",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
