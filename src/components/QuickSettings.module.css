@@ -1,0 +1,272 @@
+.container {
+  position: relative;
+}
+
+.toggleButton {
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  min-width: 140px;
+}
+
+.toggleButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+.toggleButton:active {
+  transform: scale(0.98);
+}
+
+.toggleButton svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggleButton.open svg {
+  transform: rotate(90deg);
+}
+
+.panel {
+  position: absolute;
+  top: -160%;
+  left: calc(100% + 0.75rem);
+  min-width: 350px;
+  overflow: hidden;
+  background: rgba(30, 30, 35, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  
+  /* Sin transición al cerrar */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition: none;
+}
+
+.panel.expanded {
+  padding: 1.5rem;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* Solo transición al abrir */
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resetButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 59, 48, 0.15);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  border-radius: 12px;
+  color: rgba(255, 59, 48, 0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.resetButton:hover {
+  background: rgba(255, 59, 48, 0.25);
+  border-color: rgba(255, 59, 48, 0.5);
+  color: rgba(255, 59, 48, 1);
+  transform: translateY(-1px);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+.resetButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Botones de tamaño */
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  flex: 1;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.button.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Inputs de configuración */
+.inputGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.input {
+  padding: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.input:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toggleButton {
+    padding: 0.875rem 2rem;
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+  
+  .toggleButton svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .panel {
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: 320px;
+  }
+  
+  .panel.expanded {
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .inputGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .toggleButton {
+    padding: 0.75rem 1.75rem;
+    min-width: 110px;
+    font-size: 0.85rem;
+  }
+  
+  .toggleButton svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .panel {
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: 280px;
+  }
+  
+  .panel.expanded {
+    transform: translateX(-50%) translateY(0);
+    padding: 1.25rem;
+  }
+  
+  .inputGrid {
+    gap: 0.5rem;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

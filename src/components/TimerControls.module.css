@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+
+.controlButton {
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  min-width: 140px;
+  position: relative;
+}
+
+.controlButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+.controlButton:active {
+  transform: scale(0.98);
+}
+
+.controlButton:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+.controlButton svg {
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF;
+}
+
+/* Tooltip en hover */
+.controlButton::before {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/*
+.controlButton:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}*/
+
+/* Responsive */
+@media (max-width: 768px) {
+  .controlButton {
+    padding: 0.875rem 2rem;
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+  
+  .controlButton svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .controlButton {
+    padding: 0.75rem 1.75rem;
+    min-width: 110px;
+    font-size: 0.85rem;
+  }
+  
+  .controlButton svg {
+    width: 16px;
+    height: 16px;
+  }
+}

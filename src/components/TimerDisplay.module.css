@@ -1,0 +1,157 @@
+/* Fuente tipo iOS - SF Pro Display */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cycle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.mode {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.timerDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.digit {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+}
+
+.separator {
+  font-weight: 600;
+  opacity: 0.8;
+  color: #FFFFFF;
+  padding: 0 0.2rem;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Tamaños del temporizador - estilo iOS con números más gruesos */
+.small .digit {
+  font-size: 10rem;
+  font-weight: 800;
+}
+
+.small .separator {
+  font-size: 10rem;
+  font-weight: 700;
+}
+
+.medium .digit {
+  font-size: 13.33rem;
+  font-weight: 800;
+}
+
+.medium .separator {
+  font-size: 13.33rem;
+  font-weight: 700;
+}
+
+.large .digit {
+  font-size: 16.67rem;
+  font-weight: 800;
+}
+
+.large .separator {
+  font-size: 16.67rem;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .small .digit {
+    font-size: 6rem;
+  }
+  
+  .small .separator {
+    font-size: 6rem;
+  }
+  
+  .medium .digit {
+    font-size: 8rem;
+  }
+  
+  .medium .separator {
+    font-size: 8rem;
+  }
+  
+  .large .digit {
+    font-size: 10rem;
+  }
+  
+  .large .separator {
+    font-size: 10rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .large .digit {
+    font-size: 8rem;
+  }
+  
+  .large .separator {
+    font-size: 8rem;
+  }
+  
+  .medium .digit {
+    font-size: 6rem;
+  }
+  
+  .medium .separator {
+    font-size: 6rem;
+  }
+  
+  .statusBar {
+    gap: 1rem;
+  }
+  
+  .cycle,
+  .mode {
+    font-size: 0.8rem;
+  }
+}
