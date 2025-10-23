@@ -12,6 +12,7 @@ import styles from './TimerDisplay.module.css';
  * @param {boolean} props.isStudyMode - Si está en modo estudio o descanso
  * @param {number} props.currentCycle - Ciclo actual
  * @param {number} props.totalCycles - Total de ciclos
+ * @param {boolean} props.isBlinking - Si debe parpadear (últimos 6 segundos)
  */
 const TimerDisplay = ({ 
   formattedTime, 
@@ -19,7 +20,8 @@ const TimerDisplay = ({
   color = '#FFFFFF',
   isStudyMode,
   currentCycle,
-  totalCycles
+  totalCycles,
+  isBlinking = false
 }) => {
   const sizeClass = styles[size];
   
@@ -27,7 +29,7 @@ const TimerDisplay = ({
     <div className={styles.container}>
       {/* Display del temporizador - números limpios sin fondo */}
       <div 
-        className={`${styles.timerDisplay} ${sizeClass}`}
+        className={`${styles.timerDisplay} ${sizeClass} ${isBlinking ? styles.blinking : ''}`}
         aria-label={`Tiempo restante: ${formattedTime.minutes} minutos ${formattedTime.seconds} segundos`}
       >
         <span className={styles.digit}>{formattedTime.minutes}</span>

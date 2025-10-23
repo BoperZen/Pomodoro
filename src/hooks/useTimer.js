@@ -19,6 +19,7 @@ const useTimer = (config) => {
   const [isStudyMode, setIsStudyMode] = useState(true);
   const [currentCycle, setCurrentCycle] = useState(1);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
   
   // Ref para el intervalo
   const intervalRef = useRef(null);
@@ -147,11 +148,21 @@ const useTimer = (config) => {
     if (isRunning && !intervalRef.current) {
       intervalRef.current = setInterval(() => {
         setTimeLeft(prev => {
+          // Activar blink cuando quedan 6 segundos o menos
+          if (prev <= 6 && prev > 0) {
+            setIsBlinking(true);
+          } else {
+            setIsBlinking(false);
+          }
+          
           if (prev <= 1) {
             // Tiempo agotado, cambiar automáticamente
             const currentIsStudyMode = isStudyModeRef.current;
             const currentCycleNum = currentCycleRef.current;
             const totalCycles = cyclesRef.current;
+            
+            // Desactivar blink al cambiar de fase
+            setIsBlinking(false);
             
             if (currentIsStudyMode) {
               // Cambiar a descanso
@@ -228,6 +239,7 @@ const useTimer = (config) => {
     currentCycle,
     totalCycles: cycles,
     isCompleted,
+    isBlinking,
     start,
     pause,
     reset,

@@ -52,6 +52,20 @@
   }
 }
 
+/* Animación de blink - 3 parpadeos de 2 segundos cada uno */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinking {
+  animation: blink 2s ease-in-out 3;
+}
+
 .digit {
   font-variant-numeric: tabular-nums;
   font-weight: 700;

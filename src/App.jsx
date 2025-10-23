@@ -32,6 +32,7 @@ function App() {
     totalCycles,
     isStudyMode,
     isCompleted,
+    isBlinking,
     start,
     pause,
     reset
@@ -103,6 +104,7 @@ function App() {
             currentCycle={currentCycle}
             totalCycles={totalCycles}
             isStudyMode={isStudyMode}
+            isBlinking={isBlinking}
           />
           
           {/* Mensaje de completado */}
