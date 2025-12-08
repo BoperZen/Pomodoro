@@ -42,7 +42,7 @@
 
 .panel {
   position: absolute;
-  top: -160%;
+  top: -290%;
   left: calc(100% + 0.75rem);
   min-width: 350px;
   overflow: hidden;
@@ -106,6 +106,40 @@
 }
 
 .resetButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.fullscreenButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: rgba(52, 199, 89, 0.15);
+  border: 1px solid rgba(52, 199, 89, 0.3);
+  border-radius: 12px;
+  color: rgba(52, 199, 89, 0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.fullscreenButton:hover {
+  background: rgba(52, 199, 89, 0.25);
+  border-color: rgba(52, 199, 89, 0.5);
+  color: rgb(52, 199, 89);
+  transform: translateY(-1px);
+}
+
+.fullscreenButton:active {
+  transform: translateY(0);
+}
+
+.fullscreenButton svg {
   width: 20px;
   height: 20px;
 }
